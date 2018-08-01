@@ -1,0 +1,24 @@
+<div class="col-sm-8">
+  <div class="payment-section">
+    <div class="card" *ngIf='showImage'>
+      <div class="card__select">
+        <div class="card__select-visa">
+          <button><img src="../../assets/img/if_visa_294654.png" alt=""></button>
+        </div>
+        <div class="card__select-mastercard">
+          <button><img src="../../assets/img/if__Mastercard_1156750.png" alt=""></button>
+        </div>
+      </div>
+      <div class="card__input">
+        <input class="inputs" type="number" placeholder="Сума:">
+        <button (click)='toggleImage()'><span>Оплата</span></button>
+      </div>
+    </div>
+    <div class="success" *ngIf='!showImage'>
+      <div class="success__title">Оплата пройшла успішно!</div>
+      <div class="success__img">
+        <img src="../../assets/img/if_tick_green_619543.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>

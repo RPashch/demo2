@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row user-list">
+    <app-user
+      *ngFor="let u of users"
+      [user]="u"
+    ></app-user> 
+  </div>
+  <div class="user-update">
+    <img src="../../src/assets/img/update.png" alt="">
+  </div>     
+</div>
+<div class="user-info">
+    <app-user-info></app-user-info>
+    <app-user-payment></app-user-payment>
+</div>
