@@ -1,24 +1,25 @@
 <div class="col-sm-8">
   <div class="payment-section">
-    <div class="card" *ngIf='showImage'>
-      <div class="card__select">
-        <div class="card__select-visa">
-          <button><img src="../../assets/img/if_visa_294654.png" alt=""></button>
+    <form action="">
+      <div class="card" *ngIf='showImage'>
+        <div class="card__select">
+          <div class="card__select-mastercard">
+            <input type="checkbox" id="cb1" />
+            <label for="cb1"><img src="../../assets/img/if__Mastercard_1156750.png" alt=""></label>
+          </div>
         </div>
-        <div class="card__select-mastercard">
-          <button><img src="../../assets/img/if__Mastercard_1156750.png" alt=""></button>
+        <div class="card__input">
+          <input class="input" type="number" placeholder="Сума:">
+          <input class="password" type="password" placeholder="Пароль">
+          <button type="submit" (click)='toggleImage()'><span>Оплата</span></button>
         </div>
       </div>
-      <div class="card__input">
-        <input class="inputs" type="number" placeholder="Сума:">
-        <button (click)='toggleImage()'><span>Оплата</span></button>
+      <div class="success" *ngIf='!showImage'>
+        <div class="success__title">Оплата пройшла успішно!</div>
+        <div class="success__img">
+          <img src="../../assets/img/if_tick_green_619543.png" alt="">
+        </div>
       </div>
-    </div>
-    <div class="success" *ngIf='!showImage'>
-      <div class="success__title">Оплата пройшла успішно!</div>
-      <div class="success__img">
-        <img src="../../assets/img/if_tick_green_619543.png" alt="">
-      </div>
-    </div>
+    </form>
   </div>
 </div>

@@ -6,53 +6,50 @@
     box-shadow: 0 0 20px #00000080
     margin-bottom: 30px
     &-user
+        display: flex
+        align-items: center
+        justify-content: center
         width: 370px
         height: 400px
         margin: 0px
-        &-selected
+        position: relative
+.scroll
+    width: 350px
+    height: 370px
+    margin: 0px auto
+    overflow-y: scroll
+    position: absolute
+    &__element
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin: 10px 5px 0px 0px
+        border: 1.5px solid #00000041
+        border-radius: 20px
+        height: 110px
+        &-user
             display: flex
             align-items: center
             justify-content: center
-            flex-direction: column
+            margin-left: 10px
             img
-                margin: 15px 0px 10px 
-                width: 160px
-                height: 160px
+                width: 100px
+                height: 100px
                 border-radius: 50%
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            span
-                font-size: 22px
-                font-weight: 600
-                letter-spacing: 0.5px
         &-title
             display: flex
-            align-items: center
-            justify-content: center
+            flex-direction: column
             margin: 15px 0px
+            span
+                font-size: 20px
+                font-weight: 600
+                letter-spacing: 0.5px
             ul
-                width: 300px
+                width: 180px
                 list-style: none
                 padding: 0px
                 li
-                    font-size: 18px
+                    font-size: 14px
                     font-weight: 500
                     color: rgb(140, 140, 140)
-        &-payment
-            display: flex
-            align-items: center
-            justify-content: center
-            ul
-                display: flex
-                align-items: center
-                justify-content: space-around
-                width: 200px
-                list-style: none
-                padding: 0px
-.masterCard
-    img
-        width: 70px
-        height: 40px
-.visa
-    img
-        width: 70px
-        height: 25px
