@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base_url: 'http://localhost:4200',
+  apiHost: 'localhost:8080',
+  apiUrl: `http://localhost:8080/api`,
+  pointData:{
+    merchantId: "merchantId",
+    tradePointId: "tradePointId",
+    cameraId: "cameraId"
+  }
 };
 
 /*

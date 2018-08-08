@@ -1,0 +1,30 @@
+<div class="col-sm-8">
+  <div class="payment-section">
+    <form action="">
+      <div class="card" *ngIf='showImage'>
+        <div class="card__select">
+          <div class="card__select-mastercard" *ngFor="let alias of aliases" >
+            <!--<input type="checkbox" id="cb1" />-->
+            <div (click)="setCurrentAlias(alias)">
+              <label><img src="../../assets/img/if__Mastercard_1156750.png" alt=""></label>
+              <span>{{alias}}</span>
+            </div>
+          </div>
+        </div>
+        <form action="" method="post" id="payment-form" (submit)="makePayment()" *ngIf="paymentMethod.cardAlias!=null">
+          <div class="card__input">
+            <input name="payment-method-amount" class="field" [(ngModel)]="paymentMethod.amount" type="number" placeholder="Сума:">
+            <input name="payment-method-pin" class="field password" type="password" [(ngModel)]="paymentMethod.pin" placeholder="PIN">
+            <button type="submit"><span>Оплата</span></button>
+          </div>
+        </form>
+      </div>
+      <div class="success" *ngIf='!showImage'>
+        <div class="success__title">Оплата пройшла успішно!</div>
+        <div class="success__img">
+          <img src="../../assets/img/if_tick_green_619543.png" alt="">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

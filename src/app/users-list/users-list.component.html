@@ -1,0 +1,11 @@
+<div class="col-sm-4 section1">
+  <div class="info__section">
+    <div class="info__section-user">
+      <div class="scroll">
+        <div class="scroll__element" *ngFor="let user of users">
+          <app-user-info [user]="user" (pay)="getPayments($event)"></app-user-info>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

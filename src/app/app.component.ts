@@ -1,23 +1,34 @@
 import { Component } from '@angular/core';
-import { UsersService } from './user.service';
+import { UserService } from './common/user/user.service';
+import {User} from './common/user/model';
+import {ImageService} from './common/image/image.service';
+import {PaymentService} from './common/payment/payment.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
-  providers: [UsersService]
 })
 export class AppComponent {
-  users = [];
 
-  constructor(private usersService: UsersService) {}
+  users:User[] = [];
+  aliases:string[] = [];
+  profileId:string;
+  constructor(private userService: UserService, private paymentService: PaymentService) {}
 
   ngOnInit() {
-    this.users = this.usersService.users
-    this.usersService.getUsers().subscribe(users => {
-      this.users = users;
-    });
   }
 
-  
+  getUsers(photoId:string){
+    this.userService.getUsersByPhotoId(photoId).then(users=>{
+      this.users = users;
+    })
+  }
+
+  getAliases(profileId:string){
+    this.profileId = profileId;
+    return this.paymentService.getUserPayments(profileId).then(payments =>{
+      this.aliases = payments;
+    });
+  }
 }
