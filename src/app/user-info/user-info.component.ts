@@ -23,7 +23,8 @@ export class UserInfoComponent implements OnInit {
   }
 
   getPayments(){
-    this.pay.emit(this.user.profileId);
+    console.log(this.user);
+    this.pay.emit(this.user.id);
   }
 
 }

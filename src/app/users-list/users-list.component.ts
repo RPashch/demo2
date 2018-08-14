@@ -21,6 +21,7 @@ export class UsersListComponent implements OnInit {
   }
 
   getPayments(profileId:string){
+    console.log(profileId);
     this.pay.emit(profileId);
   }
 

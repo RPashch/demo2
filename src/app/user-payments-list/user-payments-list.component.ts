@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {PaymentMethod} from '../common/payment/model';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Card, PaymentMethod} from '../common/payment/model';
 import {PaymentService} from '../common/payment/payment.service';
 
 @Component({
@@ -7,10 +7,10 @@ import {PaymentService} from '../common/payment/payment.service';
   templateUrl: './user-payments-list.component.html',
   styleUrls: ['./user-payments-list.component.sass']
 })
-export class UserPaymentsListComponent implements OnInit {
+export class UserPaymentsListComponent implements OnInit, OnChanges{
 
   @Input()
-  aliases:string[] = [];
+  aliases:Card[] = [];
 
   @Input()
   profileId: string;
@@ -25,13 +25,20 @@ export class UserPaymentsListComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnChanges(){
+    if(this.aliases.length==0){
+      this.paymentMethod = new PaymentMethod();
+    }
+  }
+
   makePayment(){
     if(this.paymentMethod.pin&&this.paymentMethod.amount){
       this.paymentService.pay(this.paymentMethod, this.profileId)
         .subscribe(
           ()=>{
-            console.log("ok")
-            this.showImage = !this.showImage;
+            console.log("ok");
+            this.paymentMethod = new PaymentMethod();
+            this.toggleImage();
           },
           (response) => {
             console.log(response['errors']);
@@ -44,6 +51,15 @@ export class UserPaymentsListComponent implements OnInit {
     this.paymentMethod.cardAlias = alias;
   }
 
+  toggleImage(){
+    this.showImage = !this.showImage;
+  }
 
+  getBrandImage(mask: string){
+    switch (mask.charAt(0)){
+      case "5": return "../../assets/img/if__Mastercard_1156750.png";
+      case "4": return "../../assets/img/if_visa_294654.png";
+    }
+  }
 
 }

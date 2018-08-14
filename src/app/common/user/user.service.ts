@@ -8,7 +8,7 @@ import {User} from './model';
 @Injectable()
 export class UserService {
 
-  private userApiUrl = `${environment.apiUrl}/api/users`;
+  private userApiUrl = `${environment.apiUrl}/profiles`;
 
   constructor(private http: HttpClient) {}
 

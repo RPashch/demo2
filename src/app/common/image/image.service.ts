@@ -8,7 +8,7 @@ import {map} from 'rxjs/operators';
 @Injectable()
 export class ImageService{
 
-  private imageApiUrl = `${environment.apiUrl}/api/images`;
+  private imageApiUrl = `${environment.apiUrl}/photos`;
 
   constructor(private http: HttpClient){}
 
@@ -16,8 +16,8 @@ export class ImageService{
   getUsersImages(): Promise <UserImage[]> {
     console.log("getUsersImages invokation");
     let params = new HttpParams();
-    params = params.append('merchantId', environment.pointData.merchantId);
-    params = params.append('tradePointId', environment.pointData.tradePointId);
+    // params = params.append('merchantId', environment.pointData.merchantId);
+    // params = params.append('tradePointId', environment.pointData.tradePointId);
     params = params.append('cameraId', environment.pointData.cameraId);
 
     let headers = new HttpHeaders();

@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   base_url: 'http://localhost:4200',
-  apiHost: 'localhost:8080',
-  apiUrl: `http://localhost:8080/api`,
+  apiHost: 'facecardpayments.us-east-2.elasticbeanstalk.com',
+  apiUrl: `http://facecardpayments.us-east-2.elasticbeanstalk.com/api`,
   pointData:{
     merchantId: "merchantId",
     tradePointId: "tradePointId",
-    cameraId: "cameraId"
+    cameraId: "demoCameraId"
   }
 };
 
@@ -21,3 +21,13 @@ export const environment = {
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+//TODO
+//refresh array again - refresh button
+//toaster - throw window, use another photo
+//delete number increment in input
+//add button for removing content
+//5 - мастеркард
+//4 - виза
+
+//почему вообще не показывать только те фото у которых есть привязка к профилю

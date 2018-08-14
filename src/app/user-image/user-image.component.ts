@@ -20,7 +20,6 @@ export class UserImageComponent implements OnInit {
   }
 
   getImage(){
-    console.log("getImage");
     return "data:image/png;base64," + this.image.base64Photo;
   }
 

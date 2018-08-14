@@ -23,7 +23,9 @@ export class UserImageListComponent implements OnInit {
   getImagesList(){
     console.log("getImagesList");
     this.imageService.getUsersImages().then(images=>{
-      this.images = images;
+      this.images = images["photos"];
+      if(this.images.length>6) this.images = this.images.slice(0,6);
+
     })
   }
 

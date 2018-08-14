@@ -16,6 +16,7 @@ import {ImageService} from './common/image/image.service';
 import {PaymentService} from './common/payment/payment.service';
 import {UserService} from './common/user/user.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {ToasterModule} from 'angular2-toaster';
 
 @NgModule({
   declarations: [
@@ -33,13 +34,17 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     HttpModule,
     BsDropdownModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ToasterModule
   ],
   providers: [
     UserService,
     ImageService,
     PaymentService,
     HttpClient],
+  exports:[
+    ToasterModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

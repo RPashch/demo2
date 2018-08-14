@@ -3,19 +3,19 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {catchError, map} from 'rxjs/operators';
 import {User} from '../user/model';
-import {PaymentMethod} from './model';
+import {Card, PaymentMethod} from './model';
 import {Observable} from 'rxjs';
 import {Response} from '@angular/http';
 
 @Injectable()
 export class PaymentService {
 
-  private paymentsApiUrl = `${environment.apiUrl}/api/payments`;
+  private paymentsApiUrl = `${environment.apiUrl}/payments`;
 
   constructor(private http: HttpClient) {
   }
 
-  getUserPayments(profileId:string):Promise<string[]>{
+  getUserPayments(profileId:string):Promise<Card[]>{
     console.log("getUserPayments", profileId);
     let params = new HttpParams();
     params = params.append('profileId', profileId);
@@ -24,7 +24,7 @@ export class PaymentService {
     headers.set('Content-Type', 'application/json');
 
     return this.http
-      .get<string[]>(this.paymentsApiUrl, { params: params, headers: headers })
+      .get<Card[]>(`${this.paymentsApiUrl}/cards`, { params: params, headers: headers })
       .pipe(map(aliases => {
         return aliases;
       }))
@@ -38,11 +38,11 @@ export class PaymentService {
     let paymentRequest = {
       pin:paymentMethod.pin,
       amount:paymentMethod.amount,
-      cardAlias:paymentMethod.cardAlias,
+      alias:paymentMethod.cardAlias,
       profileId:profileId
     };
 
-    return this.http.post(`${this.paymentsApiUrl}/pay`, paymentRequest, {headers: headers});
+    return this.http.post(`${this.paymentsApiUrl}`, paymentRequest, {headers: headers});
 
   }
 
