@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row user-list">
+    <div *ngFor="let image of images">
+      <user-image [image]="image" (getUsers)="getUsers($event)"></user-image>
+    </div>
+  </div>
+  <div class="user-update" (click)="getImagesList()">
+    <img src="../../src/assets/img/update.png" alt="">
+  </div>
+</div>
